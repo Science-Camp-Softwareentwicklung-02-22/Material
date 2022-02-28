@@ -1,0 +1,30 @@
+#login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+}
+
+.input-group-text {
+    cursor: pointer;
+}
+
+#chat {
+    height: 98vh;
+    margin: 1vh;
+}
+
+#chatWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+#chatRow {
+    flex: 1 1 auto;
+}
+
+#msgRow {
+    flex: 0 0 auto;
+}
