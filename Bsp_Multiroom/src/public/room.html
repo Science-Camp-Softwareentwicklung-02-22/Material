@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiroom</title>
+</head>
+
+<body>
+    <div id="welcome"></div>
+    <div id="num"></div>
+
+    <!-- Skript für socket.io -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- JavaScript -->
+    <script src="js/client.js"></script>
+
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+
+        let html = ""
+        let room = "default"
+        let userName = "anonymous"
+
+        if(urlParams.has('userName')){
+            userName = urlParams.get('userName')
+            html += `Hallo ${userName}! `
+        }
+
+        if(urlParams.has('room')){
+            room = urlParams.get('room')
+            html += `Willkommen in Raum ${room}!`
+        }
+        document.getElementById('welcome').innerHTML = html
+
+        joinRoom(userName, room)
+
+        function update(num) {
+            document.getElementById('num').innerHTML = `Aktuell sind ${num} Personen online.`
+        }
+    </script>
+
+</body>
+
+</html>
